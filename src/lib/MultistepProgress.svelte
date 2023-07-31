@@ -1,9 +1,9 @@
 <script>
   const steps = [
-    { num: 1, label: "STEP 1", title: "YOUR INFO" },
-    { num: 2, label: "STEP 2", title: "SELECT PLAN" },
-    { num: 3, label: "STEP 3", title: "ADD-ONS" },
-    { num: 4, label: "STEP 4", title: "SUMMARY" }
+    { num: 1, label: "STEP 1", title: "YOUR INFO", active: true },
+    { num: 2, label: "STEP 2", title: "SELECT PLAN", active: false },
+    { num: 3, label: "STEP 3", title: "ADD-ONS", active: false },
+    { num: 4, label: "STEP 4", title: "SUMMARY", active: false }
   ];
 </script>
 
@@ -12,12 +12,69 @@
   <div class="steps">
     {#each steps as step}
       <button class="step">
-        <span class="step-number">{step.num}</span>
-        <div class="step-label">
-          <span>{step.label}</span>
-          <span>{step.title}</span>
+        <span class="step-number {step.active ? 'active' : ''}">{step.num}</span>
+        <div class="step-label-container">
+          <span class="step-label">{step.label}</span>
+          <span class="step-title">{step.title}</span>
         </div>
       </button>
     {/each}
   </div>
 </div>
+
+<style>
+  .multistep-progress {
+    position: relative;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .steps button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  .step-number.active {
+    background-color: #c0e3ff;
+    color: #000;
+  }
+
+  .step-label-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;;
+  }
+
+  .step-label {
+    color: #8c88ff;
+  }
+
+  .step-title {
+    font-weight: bold;
+    color: #fff;
+  }
+</style>

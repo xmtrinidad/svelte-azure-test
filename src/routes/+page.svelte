@@ -1,10 +1,11 @@
 <script>
     import FormShell from "$lib/FormShell.svelte";
+    import PersonalInfo from "$lib/PersonalInfo.svelte";
 
 
 </script>
 
 
 <FormShell>
-  <h1>Meme</h1>
+  <PersonalInfo />
 </FormShell>
