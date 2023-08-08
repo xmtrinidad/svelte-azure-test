@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import FormHeader from "./FormHeader.svelte";
+    import MonthlyYearlyToggle from "./MonthlyYearlyToggle.svelte";
   import ArcadeIcon from "./icons/ArcadeIcon.svelte";
     import BusinessIcon from "./icons/BusinessIcon.svelte";
     import ShieldIcon from "./icons/ShieldIcon.svelte";
@@ -35,18 +36,21 @@
 
 <div class="personal-info">
   <FormHeader header="Select your plan" text="You have the option of monthly or yearly billing"></FormHeader>
-  <form action="">
-    {#each plans as plan}
-      <button on:click={() => onPlanClick(plan)} class="price-container {plan.active ? 'active' : ''}">
-        <div class="icon-container">
-          <svelte:component this={plan.icon} />
-        </div>
-        <div class="price-name-container">
-          <span class="price-name">{plan.name}</span>
-          <span class="price">{plan.price}</span>
-        </div>
-      </button>
-    {/each}
+  <form>
+    <div class="plans">
+      {#each plans as plan}
+        <button on:click={() => onPlanClick(plan)} class="price-container {plan.active ? 'active' : ''}">
+          <div class="icon-container">
+            <svelte:component this={plan.icon} />
+          </div>
+          <div class="price-name-container">
+            <span class="price-name">{plan.name}</span>
+            <span class="price">{plan.price}</span>
+          </div>
+        </button>
+      {/each}
+    </div>
+    <MonthlyYearlyToggle />
   </form>
 </div>
 
@@ -60,7 +64,13 @@
 form {
   margin: 24px 0;
   display: flex;
-  gap: 16px;
+  gap: 36px;
+  flex-direction: column;
+}
+
+.plans {
+  display: flex;
+  justify-content: space-between;
 }
 
 .price-container {
