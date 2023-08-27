@@ -1,11 +1,12 @@
 <script lang="ts">
   import FormHeader from "./FormHeader.svelte";
-    import MonthlyYearlyToggle from "./MonthlyYearlyToggle.svelte";
+  import MonthlyYearlyToggle from "./MonthlyYearlyToggle.svelte";
   import ArcadeIcon from "./icons/ArcadeIcon.svelte";
-    import BusinessIcon from "./icons/BusinessIcon.svelte";
-    import ShieldIcon from "./icons/ShieldIcon.svelte";
+  import BusinessIcon from "./icons/BusinessIcon.svelte";
+  import ShieldIcon from "./icons/ShieldIcon.svelte";
+    import type { Plan } from "./types";
 
-  let plans = [
+  let plans: Plan[] = [
     {
       name: "Arcade",
       price: "$9/mo",
@@ -26,7 +27,7 @@
     },
   ];
 
-  function onPlanClick(plan) {
+  function onPlanClick(plan: Plan) {
     plans.forEach(p => p.active = false);
     plan.active = true;
 
@@ -70,7 +71,7 @@ form {
 
 .plans {
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
 }
 
 .price-container {

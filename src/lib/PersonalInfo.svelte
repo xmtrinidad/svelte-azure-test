@@ -18,9 +18,6 @@
       <label for="phone">Phone Number</label>
       <input name="phone" type="text" id="phone" placeholder="Enter your phone number" />
     </div>
-    <div class="submit-container">
-      <button>Next Step</button>
-    </div>
   </form>
 </div>
 
@@ -52,21 +49,5 @@
     font-size: 1rem;
     color: #465172;
     background-color: #fff;
-  }
-
-  .submit-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 60px;
-  }
-
-  .submit-container button {
-    border: none;
-    background-color: #01295a;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
   }
 </style>
