@@ -13,9 +13,9 @@
       {#if step === 1 || step === 4}
         <div></div>
       {:else}
-        <button class="go-back-button">Go Back</button>
+        <button id="prev-button" class="go-back-button" on:click>Go Back</button>
       {/if}
-      <button class="next-button">Next Step</button>
+      <button id="next-button" class="next-button" on:click>Next Step</button>
     </div>
   </div>
 </div>
